@@ -33,9 +33,12 @@
       />
 
       <button id="btnLocation">geolocate</button>
-      <div id="locationData">[ click the 'geolocate' button above ]</div>
+      <p id="locationData">[ click the 'geolocate' button above ]</p>
 
-      <div id="themeData">[ current theme should be showing here ]</div>
+      <p id="themeData">
+        theme data<br />
+        [ current theme should be showing here ]
+      </p>
       <!-- <div id="buttons">
         <button onclick="webviewExpand();">Expand Webview</button>
         <small>(The window goes fullscreen)</small>
@@ -121,6 +124,7 @@
         } else {
           locationData.innerHTML =
             'Geolocation is not supported by this browser.';
+          console.log('Geolocation is not supported by this browser.');
         }
       }
 
