@@ -32,7 +32,10 @@
         src="https://thispersondoesnotexist.com/image"
       />
 
-      <div id="buttons">
+      <button onclick="requestLocation();">location data</button>
+      <span id="locationData"></span>
+
+      <!-- <div id="buttons">
         <button onclick="webviewExpand();">Expand Webview</button>
         <small>(The window goes fullscreen)</small>
         <button onclick="toggleMainButton(this);">Hide Main Button</button>
@@ -42,9 +45,9 @@
           >(The bot will recieve a message with filled
           <code>web_app_data</code> field)</small
         >
-      </div>
+      </div> -->
 
-      <h3>Test links</h3>
+      <!-- <h3>Test links</h3>
       <ul>
         <li>
           <a href="?nextpage=1">Regular link #1</a> (opens inside webview)
@@ -69,9 +72,9 @@
           <a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not
           open)
         </li>
-      </ul>
+      </ul> -->
 
-      <h3>Test permissions</h3>
+      <!-- <h3>Test permissions</h3>
       <ul>
         <li>
           <a href="javascript:;" onclick="return requestLocation();"
@@ -79,7 +82,7 @@
           >
           <span id="locationData"></span>
         </li>
-      </ul>
+      </ul> -->
 
       <h3>Init Data:</h3>
       <pre id="initData"></pre>
