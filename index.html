@@ -74,18 +74,6 @@
           >
           <span id="locationData"></span>
         </li>
-        <li>
-          <a href="javascript:;" onclick="return requestVideo();"
-            >Request Video</a
-          >
-          <span id="videoData"></span>
-        </li>
-        <li>
-          <a href="javascript:;" onclick="return requestAudio();"
-            >Request Audio</a
-          >
-          <span id="audioData"></span>
-        </li>
       </ul>
 
       <h3>Init Data:</h3>
@@ -97,12 +85,12 @@
     <script type="application/javascript">
       Telegram.WebApp.ready();
 
-      const initData = Telegram.WebApp.initData || '';
-      const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
+      const initData = window.Telegram.WebApp.initData || '';
+      const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
 
       document.querySelector(
         '#greeting'
-      ).innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
+      ).innerHTML = `Hi, ${initDataUnsafe.user.username}!`;
       document.querySelector('#initData').innerHTML = JSON.stringify(
         initData,
         null,
