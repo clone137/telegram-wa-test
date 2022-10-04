@@ -26,8 +26,9 @@
   <body>
     <section>
       <h1 id="greeting"></h1>
+      <p>an image from https://thispersondoesnotexist.com/</p>
       <img
-        id="image"
+        id="profileImage"
         width="200"
         src="https://thispersondoesnotexist.com/image"
       />
@@ -36,8 +37,8 @@
       <p id="locationData">[ click the 'geolocate' button above ]</p>
 
       <p id="themeData">
-        theme data<br />
-        [ current theme should be showing here ]
+        telegram theme data<br />
+        [ current theme data should be showing here ]
       </p>
       <!-- <div id="buttons">
         <button onclick="webviewExpand();">Expand Webview</button>
@@ -88,9 +89,9 @@
         </li>
       </ul> -->
 
-      <h3>Init Data:</h3>
+      <h3>Telegram.WebApp.initData:</h3>
       <pre id="initData"></pre>
-      <h3>Init Data (unsafe):</h3>
+      <h3>Telegram.WebApp.initDataUnsafe:</h3>
       <pre id="initDataUnsafe"></pre>
     </section>
 
@@ -100,9 +101,9 @@
       const initData = Telegram.WebApp.initData || '';
       const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-      const greeting = document.querySelector('#greeting');
-      const image = document.getElementById('image');
-      // image.setAttribute('alt', `${initDataUnsafe.user.first_name}`);
+      const greeting = document.getElementById('greeting');
+      const profileImage = document.getElementById('profileImage');
+      profileImage.setAttribute('alt', `${initDataUnsafe.user.first_name}`);
 
       const btnLocation = document.querySelector('#btnLocation');
       btnLocation.addEventListener('click', getLocation);
