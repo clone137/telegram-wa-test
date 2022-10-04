@@ -32,8 +32,8 @@
         src="https://thispersondoesnotexist.com/image"
       />
 
-      <button id="btnLocation">location data</button>
-      <span id="locationData"></span>
+      <button id="btnLocation">geolocate</button>
+      <div id="locationData">[ click the 'geolocate' button above ]</div>
 
       <!-- <div id="buttons">
         <button onclick="webviewExpand();">Expand Webview</button>
@@ -96,29 +96,31 @@
       const initData = Telegram.WebApp.initData || '';
       const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-      // const greeting = document.querySelector('#greeting');
-      document
-        .querySelector('#image')
-        .setAttribute('alt', `${initDataUnsafe.user.first_name}`);
+      const greeting = document.querySelector('#greeting');
+      const image = document.getElementById('image');
+      // image.setAttribute('alt', `${initDataUnsafe.user.first_name}`);
 
       const btnLocation = document.querySelector('#btnLocation');
-      btnLocation.addEventListener('click', function (e) {
-        e.preventDefault();
+      btnLocation.addEventListener('click', getLocation);
 
+      const locationData = document.getElementById('locationData');
+      function getLocation() {
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function (position) {
-            document.querySelector('#locationData').innerHTML =
-              '(' +
+          navigator.geolocation.getCurrentPosition(function showPosition(
+            position
+          ) {
+            console.log(position.coords.latitude, position.coords.longitude);
+            locationData.innerHTML =
+              'Latitude: ' +
               position.coords.latitude +
-              ', ' +
-              position.coords.longitude +
-              ')';
+              '<br>Longitude: ' +
+              position.coords.longitude;
           });
         } else {
-          document.querySelector('#locationData').innerHTML =
-            '(Geolocation is not supported in this browser)';
+          locationData.innerHTML =
+            'Geolocation is not supported by this browser.';
         }
-      });
+      }
 
       // fetch('https://jsonplaceholder.typicode.com/users/1')
       //   .then((response) => response.json())
